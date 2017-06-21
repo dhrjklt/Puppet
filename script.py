@@ -4,7 +4,7 @@ import time
 
 
 HOST = ["compute8", "compute3", "compute4"]
-ITERATION = 1
+ITERATION = 2
 
 def fn():
   client1=paramiko.SSHClient()
