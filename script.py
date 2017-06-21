@@ -1,27 +1,29 @@
-import paramiko
-import sys
-import time
+
+from fabric.api import *
+
+#host list where client puppet deamind to be installed 
+
+env.hosts = [
+ 	  'node1',
+      'node2',
+      'node3',
+]
+# Set the username
+env.user   = "root"
 
 
-HOST = ["compute8", "compute3", "compute4"]
-ITERATION = 2
 
-def fn():
-  client1=paramiko.SSHClient()
-  client1.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-  client1.connect(HOST)
-  print "SSH connection to %s established" %HOST
-  stdin, stdout, stderr = client1.exec_command('yum install puppet -y')
-  stdin, stdout, stderr = client1.exec_command('echo server = master >> /etc/puppet/puppet.conf ')
-  stdin, stdout, stderr = client1.exec_command( 'echo runinterval = 1440m >> /etc/puppet/puppet.conf ')
-  stdin, stdout, stderr = client1.exec_command( 'service puppet start ')
-  stdin, stdout, stderr = client1.exec_command( 'puppet agent -t')
-  client1.close()
-  print "Logged out of device %s" %HOST
+def  install():
+    #commands to be executed 
+
+    run("yum install puppet -y ")
+    run("echo server = master >> /etc/puppet/puppet.conf")
+    run("echo runinterval = 1440m >> /etc/puppet/puppet.conf")
+    run("service puppet start")
+   # run("puppet agent -t")
 
 
-for x in xrange(ITERATION):
-    fn()
-    print "%s Iteration/s completed" %(x+1)
-    print "********"
-    time.sleep(5) 
+def update_install():
+
+    # Update
+    dir_update()

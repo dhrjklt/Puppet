@@ -1,1 +1,7 @@
-Simple pythin script to automate puppet agents installations in the client machine.
+###################### Fabric Api ###################
+
+Python fabric api to automete puppet agent installation in multiple client. 
+
+To execute the script (Basically from master)
+
+fab <function_name>  -f <script_path>
