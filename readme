@@ -2,6 +2,10 @@
 
 Python fabric api to automete puppet agent installation in multiple client. 
 
+Installation 
+
+pip install fabric 
+
 To execute the script (Basically from master)
 
 fab <function_name>  -f <script_path>

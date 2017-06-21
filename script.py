@@ -1,17 +1,13 @@
 
+# modules 
 from fabric.api import *
 
-#host list where client puppet deamind to be installed 
+#host list where puppet client to be installed 
 
-env.hosts = [
- 	  'node1',
-      'node2',
-      'node3',
-]
+env.hosts = ['node1','node2','node3']
+
 # Set the username
 env.user   = "root"
-
-
 
 def  install():
     #commands to be executed 
@@ -20,10 +16,9 @@ def  install():
     run("echo server = master >> /etc/puppet/puppet.conf")
     run("echo runinterval = 1440m >> /etc/puppet/puppet.conf")
     run("service puppet start")
-   # run("puppet agent -t")
-
+   
+#function name will be used during script execution
 
 def update_install():
 
-    # Update
-    dir_update()
+     install()
