@@ -9,6 +9,10 @@ env.hosts = ['node1','node2','node3']
 # Set the username
 env.user   = "root"
 
+# Set the password
+
+env.password = "your_password"
+
 def  install():
     #commands to be executed 
 
