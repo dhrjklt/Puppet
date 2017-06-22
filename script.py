@@ -15,7 +15,8 @@ env.password = "your_password"
 
 def  install():
     #commands to be executed 
-
+     
+    run("yum update -y")
     run("yum install puppet -y ")
     run("echo server = master >> /etc/puppet/puppet.conf")
     run("echo runinterval = 1440m >> /etc/puppet/puppet.conf")
