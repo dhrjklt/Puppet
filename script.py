@@ -20,7 +20,8 @@ def  install():
     run("echo server = master >> /etc/puppet/puppet.conf")
     run("echo runinterval = 1440m >> /etc/puppet/puppet.conf")
     run("service puppet start")
-   
+    result = run("service puppet status")
+    result.failed
 #function name will be used during script execution
 
 def update_install():
