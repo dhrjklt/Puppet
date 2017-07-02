@@ -33,6 +33,12 @@ class base {
 	ensure => running,
 	enable => true,
      }
+     
+      service { "cvmfs_config probe":
+	ensure => running,
+	enable => true,
+     }
+     
 		
 }
 include base 
